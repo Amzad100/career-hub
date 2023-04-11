@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from 'react';
 import { Button } from 'react-bootstrap'
-import './Home.css'
 import Featured from '../Features/Features';
 
 const Home = () => {

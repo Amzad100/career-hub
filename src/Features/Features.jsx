@@ -3,12 +3,16 @@ import Feature from '../Feature/Feature';
 import { Button } from 'react-bootstrap';
 
 const Featured = () => {
-    const [features, setFeatures] =useState([]);
-    useEffect(()=>{
+    const [features, setFeatures] = useState([]);
+    const [showAll, setShowAll] = useState(false);
+    const handleShowAll = () => {
+        setShowAll(true)
+    }
+    useEffect(() => {
         fetch('features.json')
             .then(res => res.json())
             .then(data => setFeatures(data))
-    },[])
+    }, [])
     return (
         <>
             <div>
@@ -17,13 +21,16 @@ const Featured = () => {
             </div>
             <div className='row justify-content-between gap-5'>
                 {
-                    features.map((feature)=><Feature 
-                    key={feature.id}
-                    feature={feature}
+                    features.slice(0, showAll ? 6 : 4).map((feature) => <Feature
+                        key={feature.id}
+                        feature={feature}
                     ></Feature>)
                 }
             </div>
-            <Button className='my-5'>See All Jobs</Button>
+            {
+                !showAll && (
+                    <span onClick={handleShowAll}><Button className='my-5'>See All Jobs</Button></span>
+                )}
         </>
     );
 };
