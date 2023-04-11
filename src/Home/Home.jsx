@@ -25,7 +25,7 @@ const Home = () => {
             </div>
             {/*banner section end*/}
 
-            {/* job catagory section start*/}
+            {/* job category section start*/}
             <div className='my-5'>
                 <h1>Job Category List</h1>
                 <p>Explore thousands of job opportunities with all the information you need. Its your future</p>
@@ -40,8 +40,9 @@ const Home = () => {
                     </div>)
                 }
             </div>
-            {/* job catagory section end*/}
+            {/* job category section end*/}
 
+            {/* feature section*/}
             <Featured></Featured>
         </>
     );
