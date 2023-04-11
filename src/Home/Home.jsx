@@ -12,7 +12,7 @@ const Home = () => {
     }, [])
     return (
         <>
-            {/* banner section  */}
+            {/*banner section start*/}
             <div className="row mt-5 justify-content-between">
                 <div className="col-12 col-md-6 col-lg-6 mt-5 text-start">
                     <h2 className="fs-1 mt-5">One Step<br /> Closer To Your<br /> <span className="text-info">Dream Job</span></h2>
@@ -23,6 +23,8 @@ const Home = () => {
                     <img className='img-fluid' src="img/man.png" alt="" />
                 </div>
             </div>
+            {/*banner section end*/}
+
             {/* job catagory section */}
             <div className='my-5'>
                 <h1>Job Category List</h1>
