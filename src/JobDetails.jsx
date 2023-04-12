@@ -12,7 +12,9 @@ const JobDetails = () => {
     }, [featureid]);
 
     const handleApplyJob = (features) => {
-        addToDb(features.id);
+        const feat = feature.find((f) => f.id === featureid.id)
+        setFeature(feat);
+        addToDb(feat.id);
     }
 
     return (

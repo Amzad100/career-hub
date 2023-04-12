@@ -11,12 +11,13 @@ import Blog from './Blog';
 import AppliedJobs from './AppliedJobs';
 import JobDetails from './JobDetails';
 import ErrorPage from './ErrorPage';
+import jobsLoader from './Lodears';
 
 const router = createBrowserRouter([
   {
     path: '/',
     element: <App></App>,
-    errorElement:<ErrorPage></ErrorPage>,
+    errorElement: <ErrorPage></ErrorPage>,
     children: [
       {
         path: '/',
@@ -35,6 +36,8 @@ const router = createBrowserRouter([
       {
         path: 'appliedJobs',
         element: <AppliedJobs></AppliedJobs>,
+        loader: jobsLoader,
+
       },
       {
         path: 'blog',

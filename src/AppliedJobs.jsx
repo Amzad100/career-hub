@@ -1,9 +1,17 @@
 import React from 'react';
+import { useLoaderData } from 'react-router-dom';
+import JobsLists from './JobsLists';
 
 const AppliedJobs = () => {
+    const jobs = useLoaderData();
     return (
-        <div>
-            <h1>applied all jobs here</h1>
+        <div className=''>
+            {
+                jobs.map(job => <JobsLists
+                key={job.id}
+                job={job}
+                ></JobsLists>)
+            }
         </div>
     );
 };
