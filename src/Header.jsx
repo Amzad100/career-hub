@@ -9,7 +9,7 @@ const Header = () => {
     return (
         <Navbar expand="lg">
             <Container fluid>
-                <Link className='text-dark text-decoration-none' to=""><h1>CareerHub</h1></Link>
+                <Link className='text-dark text-decoration-none' to=""><h1>Job Fair</h1></Link>
                 <Navbar.Toggle aria-controls="navbarScroll" />
                 <Navbar.Collapse id="navbarScroll">
                     <Nav

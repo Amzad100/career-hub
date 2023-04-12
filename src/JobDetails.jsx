@@ -1,20 +1,25 @@
 import React, { useEffect, useState } from 'react';
-import { Button } from 'react-bootstrap';
 import { useLoaderData, useParams } from 'react-router-dom';
+import { addToDb, getShoppingCart } from './fakedb';
 
 const JobDetails = () => {
     const feature = useLoaderData();
     const featureid = useParams();
-
-    const [features, setFeature] = useState({});
+    const [features, setFeature] = useState([]);
     useEffect(() => {
         const feat = feature.find((f) => f.id === featureid.id)
         setFeature(feat);
     }, [featureid]);
-    console.log(features);
+
+    const handleApplyJob = (features) => {
+        addToDb(features.id);
+    }
+
     return (
         <>
-            <h1 className='my-5'>Job Details : {features.id}</h1>
+            <div className='bg-secondary'>
+                <h1 className='my-5 '>Job Details : {features.id}</h1>
+            </div>
             <div className='row'>
                 <div className='col text-start'>
                     <p>Job Description{features.jobDescription}</p>
@@ -38,7 +43,7 @@ const JobDetails = () => {
 
                     </div>
                     <div className="d-grid gap-2 mt-3">
-                        <button className="btn btn-info" type="button">Apply Now</button>
+                        <button onClick={handleApplyJob} className="btn btn-info" type="button">Apply Now</button>
                     </div>
                 </div>
             </div>

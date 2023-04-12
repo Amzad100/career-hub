@@ -1,6 +1,5 @@
 import React from 'react';
-import { BarChart, Bar, Cell, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer } from 'recharts';
-
+import { PieChart, Pie, Legend, Tooltip, ResponsiveContainer } from 'recharts';
 
 const Statistics = () => {
     const assaignmentMarks = [
@@ -16,16 +15,26 @@ const Statistics = () => {
     return (
         <>
             <h1>Assaignment marks Bar Chart</h1>
-            <BarChart
+            <PieChart
                 width={1200}
                 height={300}
-                data={assaignmentMarks}
             >
-                <Bar dataKey="marks"></Bar>
-                <XAxis dataKey="name"></XAxis>
-                <YAxis></YAxis>
+
+                <Pie
+                    dataKey="marks"
+                    isAnimationActive={false}
+                    data={assaignmentMarks}
+                    cx="50%"
+                    cy="50%"
+                    outerRadius={80}
+                    fill="#8884d8"
+                    label
+                >
+
+                </Pie>
+                <Legend dataKey="name"></Legend>
                 <Tooltip></Tooltip>
-            </BarChart>
+            </PieChart>
         </>
     );
 };
