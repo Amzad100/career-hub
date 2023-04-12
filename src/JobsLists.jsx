@@ -6,11 +6,11 @@ const JobsLists = ({ job }) => {
     const { id, companyLogo, jobTitle, companyName, remoteOnsite, location, salary, fullTimePartTime, locationLogo, salaryLogo } = job;
     return (
         <>
-            <div className='card text-start row'>
-                <div className='col'>
+            <div className='card text-start d-flex flex-row justify-content-between'>
+                <div className=''>
                     <img src={companyLogo} alt="" />
                 </div>
-                <div className='col'>
+                <div className=''>
                     <div className=''>
                         <h3>{jobTitle}</h3>
                         <h6>{companyName}</h6>
@@ -27,6 +27,8 @@ const JobsLists = ({ job }) => {
                             </div>
                         </div>
                     </div>
+                </div>
+                <div>
                     <span>
                         <Link to={'featur/:id'}><Button >View Details</Button></Link>
                     </span>
