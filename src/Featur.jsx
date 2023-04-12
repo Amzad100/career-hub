@@ -1,8 +1,10 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Button } from 'react-bootstrap';
+import { Link } from 'react-router-dom';
 
-const Feature = ({ feature }) => {
+const Featur = ({ feature }) => {
     const { id, companyLogo, jobTitle, companyName, remoteOnsite, location, salary, fullTimePartTime, locationLogo, salaryLogo } = feature;
+
     return (
         <>
             <div className='card text-start col-12 col-md-5 col-lg-5'>
@@ -23,12 +25,12 @@ const Feature = ({ feature }) => {
                         <img src={salaryLogo} alt="" /><span>{salary}</span>
                     </div>
                 </div>
-                <div>
-                    <Button>View Details</Button>
-                </div>
+                <span>
+                    <Link to={`featur/${id}`}><Button >View Details</Button></Link>
+                </span>
             </div>
         </>
     );
 };
 
-export default Feature;
+export default Featur;

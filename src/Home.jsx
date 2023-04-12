@@ -1,8 +1,14 @@
 import React, { useEffect, useState } from 'react';
 import { Button } from 'react-bootstrap'
-import Featured from '../Features/Features';
+import { useLoaderData } from 'react-router-dom';
+import Featur from './Featur';
 
 const Home = () => {
+    const features = useLoaderData();
+    const [showAll, setShowAll] = useState(false);
+    const handleShowAll = () => {
+        setShowAll(true)
+    };
     const [jobs, setJob] = useState([]);
     useEffect(() => {
         fetch('jobCategory.json')
@@ -40,9 +46,25 @@ const Home = () => {
                 }
             </div>
             {/* job category section end*/}
-
-            {/* feature section*/}
-            <Featured></Featured>
+            <div>
+                <div>
+                    <h1>Featured Jobs</h1>
+                    <p>Explore thousands of job opportunities with all the information you need. Its your future</p>
+                </div>
+                <div className='row justify-content-between gap-5'>
+                    {
+                        features.slice(0, showAll ? 6 : 4).map((feature) => <Featur
+                            key={feature.id}
+                            feature={feature}
+                            handleShowAll={handleShowAll}
+                        ></Featur>)
+                    }
+                </div>
+                {
+                    !showAll && (
+                        <span onClick={handleShowAll}><Button className='my-5'>See All Jobs</Button></span>
+                    )}
+            </div>
         </>
     );
 };

@@ -1,54 +1,47 @@
 import React from 'react'
 import ReactDOM from 'react-dom/client'
 import App from './App'
-import './index.css'
 import {
   createBrowserRouter,
   RouterProvider,
 } from "react-router-dom";
-import Main from './Main/Main';
-import Home from './Home/Home';
-import CareerHub from './CareerHub/CareerHub';
-import Statistics from './Statistics/Statistics';
-import AppliedJobs from './Applied Jobs/AppliedJobs';
-import Blog from './Blog/Blog';
-import Startapplying from './Start Applying/Startapplying';
+import Statistics from './Statistics';
+import Home from './Home';
+import Blog from './Blog';
+import AppliedJobs from './AppliedJobs';
+import JobDetails from './JobDetails';
 
 const router = createBrowserRouter([
   {
     path: '/',
-    element: <Main></Main>,
+    element: <App></App>,
     children: [
       {
         path: '/',
         element: <Home></Home>,
+        loader: () => fetch('/features.json'),
       },
       {
-        path: '/home',
-        element: <CareerHub></CareerHub>,
+        path: 'featur/:id',
+        element: <JobDetails></JobDetails>,
+        loader: ({ params }) => fetch('/features.json')
       },
       {
-        path: '/statistics',
+        path: 'statistics',
         element: <Statistics></Statistics>,
       },
       {
-        path: '/appliedJobs',
-        element: <AppliedJobs></AppliedJobs>
+        path: 'appliedJobs',
+        element: <AppliedJobs></AppliedJobs>,
       },
       {
-        path: '/blog',
-        element: <Blog></Blog>
-      },
-      {
-        path: '/startApplying',
-        element: <Startapplying></Startapplying>
-      },
+        path: 'blog',
+        element: <Blog></Blog>,
+      }
     ]
   }
 ])
 
 ReactDOM.createRoot(document.getElementById('root')).render(
-  <React.StrictMode>
-    <RouterProvider router={router} />
-  </React.StrictMode>,
+  <RouterProvider router={router} />
 )

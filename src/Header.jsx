@@ -9,7 +9,7 @@ const Header = () => {
     return (
         <Navbar expand="lg">
             <Container fluid>
-                <Link className='text-dark text-decoration-none' to="/home"><h1>CareerHub</h1></Link>
+                <Link className='text-dark text-decoration-none' to=""><h1>CareerHub</h1></Link>
                 <Navbar.Toggle aria-controls="navbarScroll" />
                 <Navbar.Collapse id="navbarScroll">
                     <Nav
@@ -17,7 +17,6 @@ const Header = () => {
                         style={{ maxHeight: '100px' }}
                         navbarScroll
                     >
-                        <Link className='text-dark mx-4 text-decoration-none' to="/home">Home</Link>
                         <Link className='text-dark mx-4 text-decoration-none' to="/statistics">Statistics</Link>
                         <Link className='text-dark text-decoration-none' to="/appliedJobs">Applied Jobs</Link>
                         <Link className='text-dark mx-4 text-decoration-none' to="/blog">Blog</Link>
