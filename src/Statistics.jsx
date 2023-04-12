@@ -19,7 +19,6 @@ const Statistics = () => {
                 width={1200}
                 height={300}
             >
-
                 <Pie
                     dataKey="marks"
                     isAnimationActive={false}
@@ -30,7 +29,6 @@ const Statistics = () => {
                     fill="#8884d8"
                     label
                 >
-
                 </Pie>
                 <Legend dataKey="name"></Legend>
                 <Tooltip></Tooltip>
